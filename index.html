@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expresso Freitas — Transporte Executivo com Excelência</title>
+  <meta name="description" content="Fretamento executivo no Rio de Janeiro. Turismo, corporativo, eventos e serviços especiais. Conforto, segurança e pontualidade." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --red:#D01B1B; --red-dark:#8B0000; --black:#111; --white:#fff; --gray:#f5f5f5; --gray-dark:#666; --shadow:0 4px 24px rgba(0,0,0,0.12); }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:.02em}
+    .section-title{font-size:clamp(26px,4vw,40px);text-transform:uppercase;margin-bottom:8px}
+    .section-title span{color:var(--red)}
+    .section-underline{width:48px;height:4px;background:var(--red);border-radius:2px;margin-bottom:24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .2s}
+    .btn-red{background:var(--red);color:white;box-shadow:0 4px 16px rgba(208,27,27,.35)}
+    .btn-red:hover{background:var(--red-dark);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:white;border:2px solid white}
+    .btn-outline:hover{background:white;color:var(--black)}
+    .btn-outline-red{background:transparent;color:var(--red);border:2px solid var(--red)}
+    .btn-outline-red:hover{background:var(--red);color:white}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:white;box-shadow:0 2px 16px rgba(0,0,0,.08)}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo img{height:48px;width:auto;object-fit:contain}
+    .nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:800}
+    .nav-logo-text .top{font-size:10px;color:#999;letter-spacing:2px;text-transform:uppercase;display:block}
+    .nav-logo-text .bottom{font-size:22px;color:var(--red);line-height:1;display:block}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;color:var(--black);position:relative;padding-bottom:2px}
+    .nav-links a::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--red);transition:width .2s}
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-links a.active{color:var(--red)}
+    .nav-phone{display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:var(--black);text-decoration:none;border:2px solid var(--red);border-radius:4px;padding:8px 16px;transition:all .2s}
+    .nav-phone:hover{background:var(--red);color:white}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .hamburger span{width:24px;height:2px;background:var(--black);display:block;transition:all .3s}
+
+    /* HERO */
+    .hero{height:100vh;min-height:580px;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:72px}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.88) 0%,rgba(139,0,0,.55) 50%,rgba(0,0,0,.35) 100%);z-index:1}
+    .hero-img{position:absolute;inset:0;background:url('bus1.jpg') center/cover no-repeat}
+    .hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 24px}
+    .hero-tag{display:inline-block;background:var(--red);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:18px;animation:fadeUp .6s ease}
+    .hero-title{font-size:clamp(40px,7vw,86px);line-height:.95;text-transform:uppercase;color:white;margin-bottom:20px;animation:fadeUp .8s ease .1s both}
+    .hero-title span{color:var(--red)}
+    .hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.85);max-width:480px;margin-bottom:32px;line-height:1.6;animation:fadeUp .8s ease .2s both}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:14px;animation:fadeUp .8s ease .3s both}
+
+    /* FEATURES BAR */
+    .features-bar{background:white;box-shadow:var(--shadow)}
+    .features-inner{max-width:1280px;margin:0 auto;padding:28px 24px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+    .feature-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+    .feature-icon{width:50px;height:50px;background:rgba(208,27,27,.08);border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .feature-icon svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:2}
+    .feature-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+    .feature-desc{font-size:12px;color:var(--gray-dark);line-height:1.4}
+
+    /* SECTIONS */
+    section{padding:72px 24px}
+    .container{max-width:1280px;margin:0 auto}
+    .section-gray{background:var(--gray)}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .about-img{border-radius:10px;overflow:hidden;height:400px}
+    .about-img img{width:100%;height:100%;object-fit:cover}
+    .about-text p{font-size:15px;color:#444;line-height:1.8;margin-bottom:14px}
+    .about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+    .stat-box{background:var(--gray);border-radius:6px;padding:14px 10px;text-align:center;border-top:3px solid var(--red)}
+    .stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;color:var(--red)}
+    .stat-label{font-size:11px;color:var(--gray-dark);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .service-card{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;height:280px}
+    .service-card-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s}
+    .service-card:hover .service-card-img{transform:scale(1.06)}
+    .service-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.15) 60%)}
+    .service-card-content{position:absolute;bottom:0;left:0;right:0;padding:20px;color:white}
+    .service-card-icon{width:38px;height:38px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+    .service-card-icon svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:2}
+    .service-card h3{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;margin-bottom:4px}
+    .service-card p{font-size:13px;color:rgba(255,255,255,.8);line-height:1.4}
+
+    /* FLEET */
+    .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+    .fleet-card{background:white;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
+    .fleet-card:hover{transform:translateY(-4px)}
+    .fleet-card-img{height:200px;overflow:hidden;position:relative}
+    .fleet-card-img img{width:100%;height:100%;object-fit:cover}
+    .fleet-card-badge{position:absolute;top:10px;right:10px;background:var(--red);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;padding:4px 10px;border-radius:3px;letter-spacing:1px}
+    .fleet-card-body{padding:18px}
+    .fleet-card-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;text-transform:uppercase;margin-bottom:4px}
+    .fleet-card-sub{font-size:12px;color:var(--gray-dark);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+    .fleet-features{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .fleet-features li{display:flex;align-items:center;gap:7px;font-size:13px;color:#555}
+    .fleet-features li svg{width:13px;height:13px;stroke:var(--red);fill:none;stroke-width:2.5;flex-shrink:0}
+
+    /* AMENITIES */
+    .amenities-section{background:linear-gradient(135deg,#0f0f0f 0%,#1a0000 50%,#2d0000 100%);color:white}
+    .amenities-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .amenities-left h2{color:white}
+    .amenities-left p{color:rgba(255,255,255,.7);margin:14px 0 24px;font-size:15px;line-height:1.7}
+    .amenities-icons{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:32px}
+    .amenity-item{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+    .amenity-item svg{width:34px;height:34px;stroke:var(--red);fill:none;stroke-width:1.5}
+    .amenity-item span{font-size:12px;color:rgba(255,255,255,.8);font-weight:500}
+
+    /* FORM */
+    .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .quote-info p{color:#555;font-size:15px;line-height:1.7;margin-bottom:20px}
+    .contact-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;margin-bottom:12px;color:#444}
+    .contact-item svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+    .form-card{background:white;border-radius:12px;padding:32px;box-shadow:var(--shadow)}
+    .form-card h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;text-transform:uppercase;margin-bottom:20px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+    .form-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#666}
+    .form-group input,.form-group select,.form-group textarea{padding:11px 13px;border:1.5px solid #e5e5e5;border-radius:6px;font-family:'Barlow',sans-serif;font-size:14px;color:var(--black);transition:border-color .2s;width:100%}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--red)}
+    .form-group textarea{resize:vertical;min-height:80px}
+    .form-submit{width:100%;padding:15px;background:var(--red);color:white;border:none;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(208,27,27,.35)}
+    .form-submit:hover{background:var(--red-dark);transform:translateY(-1px)}
+    .form-success{display:none;text-align:center;padding:32px}
+    .form-success svg{width:52px;height:52px;stroke:#16a34a;fill:none;stroke-width:1.5;margin:0 auto 14px;display:block}
+    .form-success h4{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;margin-bottom:8px}
+    .form-success p{color:#555;font-size:14px}
+    .map-embed{margin-top:20px;border-radius:10px;overflow:hidden;height:200px}
+    .map-embed iframe{width:100%;height:100%;border:0}
+
+    /* FOOTER */
+    footer{background:var(--black);color:white}
+    .footer-cta{background:var(--red);padding:18px 24px}
+    .footer-cta-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-cta-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:white}
+    .footer-cta-phone{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:white;display:flex;align-items:center;gap:8px;text-decoration:none}
+    .footer-grid{max-width:1280px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .footer-brand p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;margin:14px 0 20px}
+    .footer-socials{display:flex;gap:10px}
+    .social-btn{width:34px;height:34px;border-radius:6px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .2s;text-decoration:none}
+    .social-btn:hover{background:var(--red)}
+    .social-btn svg{width:16px;height:16px;fill:white}
+    .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-col ul li a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+    .footer-col ul li a:hover{color:var(--red)}
+    .footer-contact-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:8px}
+    .footer-contact-item svg{width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+    .footer-bottom{max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
+
+    /* WHATSAPP FLOAT */
+    .wa-float{position:fixed;bottom:24px;right:24px;z-index:99;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s;text-decoration:none}
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:28px;height:28px;fill:white}
+
+    /* MOBILE MENU */
+    .mobile-menu{display:none;position:fixed;inset:72px 0 0;background:white;z-index:99;flex-direction:column;padding:28px 24px;gap:20px;overflow-y:auto}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;text-decoration:none;color:var(--black);border-bottom:1px solid #f0f0f0;padding-bottom:16px}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .features-inner{grid-template-columns:repeat(3,1fr)}
+      .fleet-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav-links,.nav-phone{display:none}
+      .hamburger{display:flex}
+      .about-grid,.amenities-grid,.quote-grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:1fr 1fr}
+      .about-stats{grid-template-columns:repeat(2,1fr)}
+      .amenities-icons{grid-template-columns:repeat(5,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:520px){
+      .features-inner{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:1fr}
+      .fleet-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .amenities-icons{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo">
+      <div class="nav-logo-text">
+        <span class="top">Expresso</span>
+        <span class="bottom">FREITAS</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#frota">Nossa Frota</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a href="https://wa.me/5521996829068" target="_blank" class="nav-phone">
+      <svg viewBox="0 0 24 24" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="#25d366" stroke-width="2" fill="none"/></svg>
+      (21) 99682-9068
+    </a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio" onclick="toggleMenu()">Início</a>
+  <a href="#quem-somos" onclick="toggleMenu()">Quem Somos</a>
+  <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+  <a href="#frota" onclick="toggleMenu()">Nossa Frota</a>
+  <a href="#contato" onclick="toggleMenu()">Contato</a>
+  <a href="https://wa.me/5521996829068" target="_blank" class="btn btn-red" style="justify-content:center;margin-top:8px">Falar no WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-img"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Nova Iguaçu — Rio de Janeiro</div>
+    <h1 class="hero-title">Transporte Executivo<br><span>com Excelência</span></h1>
+    <p class="hero-sub">Conforto, segurança e os melhores destinos.<br>Pense longe, nós levamos você.</p>
+    <div class="hero-btns">
+      <a href="#contato" class="btn btn-red">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Solicitar Orçamento
+      </a>
+      <a href="https://wa.me/5521996829068" target="_blank" class="btn btn-outline">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="features-inner">
+    <div class="feature-item">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="1" y="7" width="22" height="12" rx="3"/><path d="M1 11h22"/></svg></div>
+      <div class="feature-title">Frota Moderna</div>
+      <div class="feature-desc">6 ônibus Marcopolo semi-leito</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="feature-title">Motoristas Qualificados</div>
+      <div class="feature-desc">Profissionais experientes e treinados</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <div class="feature-title">Atendimento 24h</div>
+      <div class="feature-desc">Suporte antes, durante e após a viagem</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="feature-title">Viagens Personalizadas</div>
+      <div class="feature-desc">Soluções sob medida para cada grupo</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="feature-title">Segurança Total</div>
+      <div class="feature-desc">Todos os veículos regularizados</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="bus1.jpg" alt="Ônibus Expresso Freitas — Carro 2020 G7 Scania" loading="lazy"/>
+      </div>
+      <div>
+        <div class="section-title">Quem <span>Somos</span></div>
+        <div class="section-underline"></div>
+        <p>A Expresso Freitas Transportes Ltda nasceu com o propósito de oferecer soluções em transporte executivo com excelência, conforto e segurança.</p>
+        <p>Atuamos no segmento de fretamento contínuo, eventual e turismo, sempre prezando pela pontualidade, respeito e satisfação dos nossos clientes. CNPJ: 19.109.910/0001-35.</p>
+        <div class="about-stats">
+          <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Ônibus na frota</div></div>
+          <div class="stat-box"><div class="stat-num">44+</div><div class="stat-label">Lugares por ônibus</div></div>
+          <div class="stat-box"><div class="stat-num">10+</div><div class="stat-label">Anos de experiência</div></div>
+          <div class="stat-box"><div class="stat-num">24h</div><div class="stat-label">Atendimento</div></div>
+        </div>
+        <a href="#contato" class="btn btn-red">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="section-gray">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="section-title">Nossos <span>Serviços</span></div>
+      <div class="section-underline" style="margin:0 auto"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+          <h3>Turismo</h3>
+          <p>Passeios, excursões e viagens incríveis com conforto e segurança.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+          <h3>Corporativo</h3>
+          <p>Transporte empresarial com pontualidade e discrição para sua equipe.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h3>Eventos</h3>
+          <p>Shows, feiras, congressos e eventos especiais com toda a estrutura.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Serviços Especiais</h3>
+          <p>Casamentos, formaturas, traslados e roteiros personalizados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSSA FROTA -->
+<section id="frota">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <div class="section-title">Nossa <span>Frota</span></div>
+      <div class="section-underline" style="margin:0 auto"></div>
+      <p style="color:#666;font-size:15px;margin-top:8px">6 ônibus Marcopolo semi-leito — 44 a 46 passageiros</p>
+    </div>
+    <div class="fleet-grid">
+      <div class="fleet-card">
+        <div class="fleet-card-img">
+          <img src="bus1.jpg" alt="Carro 2020 — G7 Scania" loading="lazy"/>
+          <div class="fleet-card-badge">Carro 2020</div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-title">Marcopolo G7 / Scania</div>
+          <div class="fleet-card-sub">Placa ESU 4850 · 2010/2011</div>
+          <ul class="fleet-features">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>45 poltronas semi-leito</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ar-condicionado</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi e USB</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bagageiro espaçoso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-card-img">
+          <img src="bus2.jpg" alt="Carro 2050 — G7 Mercedes" loading="lazy"/>
+          <div class="fleet-card-badge">Carro 2050</div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-title">Marcopolo G7 / Mercedes</div>
+          <div class="fleet-card-sub">Placa AUN5H02 · 2011</div>
+          <ul class="fleet-features">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>45 poltronas semi-leito</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ar-condicionado</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi e USB</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bagageiro espaçoso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-card-img" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;color:white;padding:20px">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--red)">2000</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px">G7 / Volvo · MHZ 4593</div>
+          </div>
+          <div class="fleet-card-badge">Carro 2000</div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-title">Marcopolo G7 / Volvo</div>
+          <div class="fleet-card-sub">Placa MHZ 4593 · 2009/2010</div>
+          <ul class="fleet-features">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>45 poltronas semi-leito</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ar-condicionado</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi e USB</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bagageiro espaçoso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-card-img" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;color:white;padding:20px">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--red)">2010</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px">LD / Scania · NAP 4639</div>
+          </div>
+          <div class="fleet-card-badge">Carro 2010</div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-title">Marcopolo LD / Scania</div>
+          <div class="fleet-card-sub">Placa NAP 4639 · 2011</div>
+          <ul class="fleet-features">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>44 poltronas semi-leito</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ar-condicionado</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi e USB</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bagageiro espaçoso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-card-img" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;color:white;padding:20px">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--red)">2030</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px">LD / Mercedes · OYG1A26</div>
+          </div>
+          <div class="fleet-card-badge">Carro 2030</div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-title">Marcopolo LD / Mercedes</div>
+          <div class="fleet-card-sub">Placa OYG1A26 · 2014</div>
+          <ul class="fleet-features">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>44 poltronas semi-leito</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ar-condicionado</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi e USB</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bagageiro espaçoso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-card-img" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;color:white;padding:20px">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--red)">2060</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px">G7 / Volvo · LPR9A76</div>
+          </div>
+          <div class="fleet-card-badge">Carro 2060</div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-title">Marcopolo G7 / Volvo</div>
+          <div class="fleet-card-sub">Placa LPR9A76 · 2010</div>
+          <ul class="fleet-features">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>46 poltronas semi-leito</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ar-condicionado</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi e USB</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bagageiro espaçoso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities-section">
+  <div class="container">
+    <div class="amenities-grid">
+      <div class="amenities-left">
+        <div class="section-title">Atendimento Rápido<br>e <span>Personalizado</span></div>
+        <p>Fale agora com nossa equipe e solicite seu orçamento. Respondemos em minutos pelo WhatsApp.</p>
+        <a href="https://wa.me/5521996829068" target="_blank" class="btn btn-red">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+      <div>
+        <div class="section-title" style="color:white;margin-bottom:8px">Comodidades <span>a Bordo</span></div>
+        <div class="section-underline" style="margin-bottom:0"></div>
+        <div class="amenities-icons">
+          <div class="amenity-item">
+            <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+            <span>Wi-Fi</span>
+          </div>
+          <div class="amenity-item">
+            <svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-5 0v-15A2.5 2.5 0 019.5 2z"/><path d="M14.5 8A2.5 2.5 0 0117 10.5v9a2.5 2.5 0 01-5 0v-9A2.5 2.5 0 0114.5 8z"/></svg>
+            <span>Ar-cond.</span>
+          </div>
+          <div class="amenity-item">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            <span>Semi-leito</span>
+          </div>
+          <div class="amenity-item">
+            <svg viewBox="0 0 24 24"><path d="M5 18H3a2 2 0 01-2-2V8a2 2 0 012-2h3.19M15 6h2a2 2 0 012 2v8a2 2 0 01-2 2h-3.19"/><line x1="23" y1="13" x2="23" y2="11"/><polyline points="11 6 7 12 13 12 9 18"/></svg>
+            <span>USB</span>
+          </div>
+          <div class="amenity-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Segurança</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO / ORÇAMENTO -->
+<section id="contato" class="section-gray">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-info">
+        <div class="section-title">Solicite seu <span>Orçamento</span></div>
+        <div class="section-underline"></div>
+        <p>Preencha o formulário com os detalhes da sua viagem e nossa equipe entrará em contato em até 30 minutos pelo WhatsApp.</p>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <span><strong>WhatsApp:</strong> (21) 99682-9068</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span><strong>E-mail:</strong> contato@expressofreitas.com.br</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Endereço:</strong> R. João Ferreira Pinto, 448 — Floresta, Nova Iguaçu - RJ, 26030-520</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span><strong>Horário:</strong> Atendimento 24 horas</span>
+        </div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.5!2d-43.4516!3d-22.7553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sR.+Jo%C3%A3o+Ferreira+Pinto%2C+448+-+Floresta%2C+Nova+Igua%C3%A7u+-+RJ%2C+26030-520!5e0!3m2!1spt!2sbr!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="form-card" id="formCard">
+        <h3>Dados da Viagem</h3>
+        <form id="quoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome Completo *</label>
+              <input type="text" name="name" placeholder="Seu nome" required/>
+            </div>
+            <div class="form-group">
+              <label>WhatsApp *</label>
+              <input type="tel" name="phone" placeholder="(21) 99999-9999" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" name="email" placeholder="seu@email.com"/>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Origem *</label>
+              <input type="text" name="origin" placeholder="Cidade / Bairro de saída" required/>
+            </div>
+            <div class="form-group">
+              <label>Destino *</label>
+              <input type="text" name="destination" placeholder="Cidade / Local de destino" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Data de ida *</label>
+              <input type="date" name="date_from" required/>
+            </div>
+            <div class="form-group">
+              <label>Data de volta</label>
+              <input type="date" name="date_to"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nº de passageiros *</label>
+              <input type="number" name="passengers" min="1" placeholder="Ex: 40" required/>
+            </div>
+            <div class="form-group">
+              <label>Tipo de serviço</label>
+              <select name="service_type">
+                <option value="">Selecione...</option>
+                <option>Turismo</option>
+                <option>Corporativo</option>
+                <option>Evento</option>
+                <option>Casamento / Formatura</option>
+                <option>Traslado</option>
+                <option>Outro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Observações</label>
+            <textarea name="notes" placeholder="Descreva detalhes adicionais..."></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Solicitar Orçamento →</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h4>Orçamento Enviado!</h4>
+          <p>Recebemos sua solicitação e entraremos em contato em até 30 minutos pelo WhatsApp <strong>(21) 99682-9068</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cta">
+    <div class="footer-cta-inner">
+      <div class="footer-cta-text">ATENDIMENTO 24 HORAS — FALE CONOSCO AGORA</div>
+      <a href="https://wa.me/5521996829068" target="_blank" class="footer-cta-phone">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        (21) 99682-9068
+      </a>
+    </div>
+  </div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;color:var(--red)">EXPRESSO FREITAS</div>
+      <p>Transporte executivo com excelência, conforto e segurança. Pense longe, nós levamos você.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#frota">Nossa Frota</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#servicos">Turismo</a></li>
+        <li><a href="#servicos">Corporativo</a></li>
+        <li><a href="#servicos">Eventos</a></li>
+        <li><a href="#servicos">Casamentos</a></li>
+        <li><a href="#servicos">Traslados</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Fale Conosco</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        (21) 99682-9068
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        contato@expressofreitas.com.br
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        R. João Ferreira Pinto, 448<br>Floresta, Nova Iguaçu — RJ
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Expresso Freitas Transportes Ltda · CNPJ 19.109.910/0001-35</p>
+    <p>expressofreitas.com.br</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5521996829068" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+</a>
+
+<script>
+  // NAV SCROLL
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    nav.style.boxShadow = window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,.12)' : 'none';
+    document.querySelectorAll('section[id]').forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) {
+        document.querySelectorAll('.nav-links a').forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + s.id);
+        });
+      }
+    });
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // FORM SUBMIT → SUPABASE
+  const SUPABASE_URL = 'https://oxqaquzlpitxlsnbqths.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94cWFxdXpscGl0eGxzbmJxdGhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxMTM1OTEsImV4cCI6MjA5NTY4OTU5MX0.OZPOjcsjIg3uknBZb50bKzxqgp_H4gRIfLmhh50wgxM';
+
+  document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    const data = Object.fromEntries(new FormData(this));
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/quotes`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ name: data.name, phone: data.phone, email: data.email || null, origin: data.origin, destination: data.destination, date_from: data.date_from, date_to: data.date_to || null, passengers: data.passengers ? parseInt(data.passengers) : null, service_type: data.service_type || null, notes: data.notes || null, status: 'novo' })
+      });
+      if (res.ok || res.status === 201) {
+        document.getElementById('quoteForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else { throw new Error(); }
+    } catch {
+      alert('Erro ao enviar. Por favor, entre em contato pelo WhatsApp (21) 99682-9068.');
+      btn.textContent = 'Solicitar Orçamento →';
+      btn.disabled = false;
+    }
+  });
+
+  // PHONE MASK
+  document.querySelector('input[name="phone"]').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'');
+    if (v.length <= 10) v = v.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3');
+    else v = v.replace(/(\d{2})(\d{5})(\d{0,4})/,'($1) $2-$3');
+    this.value = v;
+  });
+</script>
+</body>
+</html>
