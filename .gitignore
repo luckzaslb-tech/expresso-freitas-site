@@ -1,0 +1,13 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.code-workspace
+
+# Variáveis de ambiente (nunca subir)
+.env
+.env.local
+.env.*

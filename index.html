@@ -1369,6 +1369,7 @@
       }
     }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -2001,6 +2002,7 @@
               <label>Observações</label>
               <textarea name="notes" placeholder="Descreva detalhes adicionais..."></textarea>
             </div>
+            <div class="cf-turnstile" data-sitekey="SITE_KEY_AQUI" data-theme="light" style="margin-bottom:12px"></div>
             <button type="submit" class="form-submit" id="submitBtn">Solicitar Orçamento →</button>
           </form>
           <div class="form-success" id="formSuccess">
@@ -2142,6 +2144,11 @@
 
     document.getElementById('quoteForm').addEventListener('submit', async function (e) {
       e.preventDefault();
+      const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+      if (!turnstileToken) {
+        alert('Por favor, complete a verificação de segurança.');
+        return;
+      }
       const btn = document.getElementById('submitBtn');
       btn.textContent = 'Enviando...';
       btn.disabled = true;
