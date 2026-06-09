@@ -166,6 +166,38 @@
     .mobile-menu.open{display:flex}
     .mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;text-decoration:none;color:var(--black);border-bottom:1px solid #f0f0f0;padding-bottom:16px}
 
+    /* GALLERY MODAL */
+    .gallery-modal{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.95);flex-direction:column;align-items:center}
+    .gallery-modal.open{display:flex}
+    .gallery-modal-header{width:100%;max-width:1280px;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;flex-shrink:0}
+    .gallery-modal-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;letter-spacing:.05em}
+    .gallery-modal-title span{color:var(--red)}
+    .gallery-close{background:rgba(255,255,255,.1);border:none;cursor:pointer;color:white;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;transition:background .2s}
+    .gallery-close:hover{background:var(--red)}
+    .gallery-close svg{width:20px;height:20px;stroke:white;fill:none;stroke-width:2}
+    .gallery-grid-wrap{width:100%;overflow-y:auto;padding:0 24px 24px;flex:1}
+    .gallery-grid{max-width:1280px;margin:0 auto;columns:4;column-gap:12px}
+    .gallery-item{break-inside:avoid;margin-bottom:12px;border-radius:8px;overflow:hidden;cursor:pointer;position:relative}
+    .gallery-item img{width:100%;display:block;transition:transform .3s,opacity .3s;opacity:.88}
+    .gallery-item:hover img{transform:scale(1.04);opacity:1}
+    .gallery-item::after{content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:8px;transition:border-color .2s}
+    .gallery-item:hover::after{border-color:var(--red)}
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.97);align-items:center;justify-content:center}
+    .lightbox.open{display:flex}
+    .lightbox-img-wrap img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:6px;display:block}
+    .lightbox-close{position:fixed;top:18px;right:18px;background:rgba(255,255,255,.12);border:none;cursor:pointer;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:310}
+    .lightbox-close:hover{background:var(--red)}
+    .lightbox-close svg{width:20px;height:20px;stroke:white;fill:none;stroke-width:2}
+    .lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;cursor:pointer;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:310}
+    .lightbox-nav:hover{background:var(--red)}
+    .lightbox-nav svg{width:22px;height:22px;stroke:white;fill:none;stroke-width:2}
+    .lightbox-prev{left:16px}
+    .lightbox-next{right:16px}
+    .lightbox-counter{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:14px;color:rgba(255,255,255,.6);letter-spacing:1px;z-index:310}
+    @media(max-width:768px){.gallery-grid{columns:2}}
+    @media(max-width:480px){.gallery-grid{columns:2}.lightbox-nav{width:38px;height:38px}}
+
     /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
@@ -302,11 +334,72 @@
           <div class="stat-box"><div class="stat-num">10+</div><div class="stat-label">Anos de experiência</div></div>
           <div class="stat-box"><div class="stat-num">24h</div><div class="stat-label">Atendimento</div></div>
         </div>
-        <a href="#contato" class="btn btn-red">Solicitar Orçamento</a>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px">
+          <a href="#contato" class="btn btn-red">Solicitar Orçamento</a>
+          <button class="btn btn-outline-red" onclick="openGallery()">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Fotos
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- GALERIA DE FOTOS -->
+<div class="gallery-modal" id="galleryModal">
+  <div class="gallery-modal-header">
+    <div class="gallery-modal-title">Nossa <span>Frota em Ação</span></div>
+    <button class="gallery-close" onclick="closeGallery()" aria-label="Fechar">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="gallery-grid-wrap">
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" onclick="openLightbox(0)"><img src="WhatsApp Image 2026-05-29 at 10.57.54.jpeg" alt="Expresso Freitas — Carro 2020 embarque" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="WhatsApp Image 2026-05-29 at 10.57.54 (1).jpeg" alt="Expresso Freitas — Carro 2020 frente" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="WhatsApp Image 2026-05-29 at 10.57.54 (2).jpeg" alt="Expresso Freitas — Carro 2020 lateral passageiros" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(3)"><img src="WhatsApp Image 2026-05-29 at 10.57.54 (3).jpeg" alt="Expresso Freitas — Carro 2020 frente noite" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(4)"><img src="WhatsApp Image 2026-05-29 at 10.59.21.jpeg" alt="Expresso Freitas — Carro 2050 noite" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(5)"><img src="WhatsApp Image 2026-05-29 at 10.59.21 (1).jpeg" alt="Expresso Freitas — Carro 2010 duplo andares" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(6)"><img src="WhatsApp Image 2026-05-29 at 10.59.21 (2).jpeg" alt="Expresso Freitas — Carro 2050 noite lateral" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(7)"><img src="WhatsApp Image 2026-05-29 at 10.59.21 (3).jpeg" alt="Expresso Freitas — Carro 2050 bagageiro aberto" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(8)"><img src="WhatsApp Image 2026-05-29 at 11.04.47.jpeg" alt="Expresso Freitas — Carro 2020 pátio céu azul" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(9)"><img src="WhatsApp Image 2026-05-29 at 11.07.48.jpeg" alt="Expresso Freitas — Carro 2020 rodovia" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(10)"><img src="WhatsApp Image 2026-05-29 at 11.12.17.jpeg" alt="Expresso Freitas — ônibus na estrada da serra" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(11)"><img src="WhatsApp Image 2026-05-29 at 11.12.17 (1).jpeg" alt="Expresso Freitas — Carro 2020 lateral cidade" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(12)"><img src="WhatsApp Image 2026-05-29 at 11.12.17 (2).jpeg" alt="Expresso Freitas — Carros 2000 e 2020 juntos" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(13)"><img src="WhatsApp Image 2026-05-29 at 11.12.18.jpeg" alt="Expresso Freitas — Carro 2020 Dedo de Deus" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(14)"><img src="WhatsApp Image 2026-05-29 at 11.12.18 (1).jpeg" alt="Expresso Freitas — Carro 2020 frente montanhas" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(15)"><img src="WhatsApp Image 2026-05-29 at 11.12.18 (2).jpeg" alt="Expresso Freitas — Carro 2010 traseira na rua" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(16)"><img src="WhatsApp Image 2026-05-29 at 11.12.19.jpeg" alt="Expresso Freitas — Carro 2020 Dedo de Deus lateral" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(17)"><img src="WhatsApp Image 2026-05-29 at 11.12.19 (1).jpeg" alt="Expresso Freitas — Carro 2020 floresta" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(18)"><img src="WhatsApp Image 2026-05-29 at 11.12.20.jpeg" alt="Expresso Freitas — Carro 2020 estrada de terra" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(19)"><img src="WhatsApp Image 2026-05-29 at 11.12.20 (1).jpeg" alt="Expresso Freitas — Carro 2030 preto" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(20)"><img src="WhatsApp Image 2026-05-29 at 11.12.20 (2).jpeg" alt="Expresso Freitas — Carro 2020 Dedo de Deus frontal" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(21)"><img src="WhatsApp Image 2026-05-29 at 11.12.20 (3).jpeg" alt="Expresso Freitas — Carro 2020 cidade lateral" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(22)"><img src="WhatsApp Image 2026-05-29 at 11.12.20 (4).jpeg" alt="Expresso Freitas — Carro 2020 frente cidade" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLightbox(23)"><img src="WhatsApp Image 2026-05-29 at 11.12.21.jpeg" alt="Expresso Freitas — Carro 2020 lateral" loading="lazy"/></div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)" aria-label="Anterior">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt=""/>
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)" aria-label="Próxima">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <!-- SERVIÇOS -->
 <section id="servicos" class="section-gray">
@@ -367,7 +460,7 @@
     <div class="fleet-grid">
       <div class="fleet-card">
         <div class="fleet-card-img">
-          <img src="bus1.jpg" alt="Carro 2020 — G7 Scania" loading="lazy" style="object-position:78% center"/>
+          <img src="2020.png" alt="Carro 2020 — G7 Scania" loading="lazy"/>
           <div class="fleet-card-badge">Carro 2020</div>
         </div>
         <div class="fleet-card-body">
@@ -441,11 +534,8 @@
         </div>
       </div>
       <div class="fleet-card">
-        <div class="fleet-card-img" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center">
-          <div style="text-align:center;color:white;padding:20px">
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--red)">2060</div>
-            <div style="font-size:13px;opacity:.7;margin-top:4px">G7 / Volvo · LPR9A76</div>
-          </div>
+        <div class="fleet-card-img">
+          <img src="2060.png" alt="Carro 2060 — G7 Volvo" loading="lazy"/>
           <div class="fleet-card-badge">Carro 2060</div>
         </div>
         <div class="fleet-card-body">
@@ -717,6 +807,46 @@
       alert('Erro ao enviar. Por favor, entre em contato pelo WhatsApp (21) 99682-9068.');
       btn.textContent = 'Solicitar Orçamento →';
       btn.disabled = false;
+    }
+  });
+
+  // GALLERY
+  const galleryImages = Array.from(document.querySelectorAll('#galleryGrid .gallery-item img'));
+  let currentLightboxIndex = 0;
+
+  function openGallery() {
+    document.getElementById('galleryModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGallery() {
+    document.getElementById('galleryModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function openLightbox(index) {
+    currentLightboxIndex = index;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function lightboxNav(dir) {
+    currentLightboxIndex = (currentLightboxIndex + dir + galleryImages.length) % galleryImages.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    const img = galleryImages[currentLightboxIndex];
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt;
+    document.getElementById('lightboxCounter').textContent = (currentLightboxIndex + 1) + ' / ' + galleryImages.length;
+  }
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').classList.contains('open')) {
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+      if (e.key === 'ArrowRight') lightboxNav(1);
+      if (e.key === 'Escape') closeLightbox();
+    } else if (document.getElementById('galleryModal').classList.contains('open')) {
+      if (e.key === 'Escape') closeGallery();
     }
   });
 
