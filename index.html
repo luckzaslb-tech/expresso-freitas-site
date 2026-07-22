@@ -264,6 +264,14 @@
       z-index: 1
     }
 
+    /* container que recebe o zoom dirigido pelo scroll */
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+      transform: scale(1)
+    }
+
     .hero-img {
       position: absolute;
       inset: 0;
@@ -276,12 +284,33 @@
       to   { transform: scale(1.12) translate(-2%, -1%); }
     }
 
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease
+    }
+    /* só aparece depois que há frame pronto — até lá fica a foto do .hero-img */
+    .hero-video.ready {
+      opacity: 1
+    }
+
+    /* quem pediu menos movimento no sistema fica só com a foto */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-img { animation: none }
+      .hero-video { display: none }
+    }
+
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px
+      padding: 0 24px;
+      will-change: transform, opacity
     }
 
     .hero-tag {
@@ -1377,10 +1406,7 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="#inicio" class="nav-logo">
-        <div class="nav-logo-text">
-          <span class="top">Expresso</span>
-          <span class="bottom">FREITAS</span>
-        </div>
+        <img src="img/logo.png" alt="Expresso Freitas" />
       </a>
       <div class="nav-links">
         <a href="#inicio" class="active">Início</a>
@@ -1416,8 +1442,14 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio">
-    <div class="hero-img"></div>
-    <div class="hero-bg"></div>
+    <div class="hero-media" id="heroMedia">
+      <div class="hero-img"></div>
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata"
+        poster="img/bus1.jpg" aria-hidden="true" tabindex="-1">
+        <source src="video/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-bg" id="heroBg"></div>
     <div class="hero-content">
       <div class="hero-tag">Nova Iguaçu — Rio de Janeiro</div>
       <h1 class="hero-title">Transporte Executivo<br><span>com Excelência</span></h1>
@@ -2136,6 +2168,60 @@
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
     }
+
+    // HERO VIDEO — só entra em cena quando tem frame pronto; se falhar, fica a foto
+    (function () {
+      const video = document.getElementById('heroVideo');
+      if (!video) return;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        video.removeAttribute('autoplay');
+        video.pause();
+        return;
+      }
+
+      video.addEventListener('canplay', () => video.classList.add('ready'), { once: true });
+      video.addEventListener('error', () => video.remove());
+
+      // alguns navegadores móveis recusam o autoplay mesmo mudo
+      const attempt = video.play();
+      if (attempt) attempt.catch(() => video.remove());
+    })();
+
+    // HERO SCROLL — zoom no vídeo + fade do texto conforme rola a página
+    (function () {
+      const hero = document.getElementById('inicio');
+      const media = document.getElementById('heroMedia');
+      const content = hero && hero.querySelector('.hero-content');
+      if (!hero || !media || !content) return;
+
+      // respeita quem pediu menos movimento no sistema
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      let ticking = false;
+
+      function update() {
+        ticking = false;
+        const h = hero.offsetHeight || 1;
+        // progresso de 0 (topo) a 1 (rolou uma tela inteira)
+        const p = Math.min(Math.max(window.scrollY / h, 0), 1);
+
+        media.style.transform = 'scale(' + (1 + p * 0.28).toFixed(4) + ')';
+        content.style.opacity = Math.max(1 - p * 1.25, 0).toFixed(3);
+        content.style.transform = 'translateY(' + (p * 44).toFixed(1) + 'px)';
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+    })();
 
     // FORM SUBMIT → WHATSAPP
     const WHATSAPP_NUMBER = '5521996829068';
