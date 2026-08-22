@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://expressofreitas.com.br/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,6 +15,11 @@
       <image:loc>https://expressofreitas.com.br/img/bus1.jpg</image:loc>
       <image:title>Ônibus Executivo Expresso Freitas — Fretamento no Rio de Janeiro</image:title>
       <image:caption>Frota moderna de ônibus executivo semi-leito no Rio de Janeiro</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/social-share.jpg</image:loc>
+      <image:title>Expresso Freitas — Aluguel e fretamento de ônibus no Rio de Janeiro</image:title>
+      <image:caption>Ônibus executivo da Expresso Freitas no Rio de Janeiro</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://expressofreitas.com.br/img/frota-gerada/2020-final.jpg</image:loc>
@@ -45,6 +50,161 @@
       <image:loc>https://expressofreitas.com.br/img/frota-gerada/2060-final.jpg</image:loc>
       <image:title>Carro 2060 — Ônibus Marcopolo G7 Volvo Expresso Freitas</image:title>
       <image:caption>Ônibus executivo semi-leito com 46 lugares</image:caption>
+    </image:image>
++    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-01.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 1</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-02.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 2</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-03.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 3</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-04.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 4</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-05.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 5</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-06.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 6</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-07.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 7</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2000/2000-interior-08.jpeg</image:loc>
+      <image:title>Interior do carro 2000 da Expresso Freitas — foto 8</image:title>
+      <image:caption>Interior do ônibus executivo 2000 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2010/2010-interior-01.jpeg</image:loc>
+      <image:title>Interior do carro 2010 da Expresso Freitas — foto 1</image:title>
+      <image:caption>Interior do ônibus executivo 2010 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2010/2010-interior-02.jpeg</image:loc>
+      <image:title>Interior do carro 2010 da Expresso Freitas — foto 2</image:title>
+      <image:caption>Interior do ônibus executivo 2010 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2010/2010-interior-03.jpeg</image:loc>
+      <image:title>Interior do carro 2010 da Expresso Freitas — foto 3</image:title>
+      <image:caption>Interior do ônibus executivo 2010 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-01.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 1</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-02.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 2</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-03.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 3</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-04.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 4</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-05.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 5</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-06.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 6</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2020/2020-interior-07.jpeg</image:loc>
+      <image:title>Interior do carro 2020 da Expresso Freitas — foto 7</image:title>
+      <image:caption>Interior do ônibus executivo 2020 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2030/2030-interior-01.jpeg</image:loc>
+      <image:title>Interior do carro 2030 da Expresso Freitas — foto 1</image:title>
+      <image:caption>Interior do ônibus executivo 2030 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2030/2030-interior-02.jpeg</image:loc>
+      <image:title>Interior do carro 2030 da Expresso Freitas — foto 2</image:title>
+      <image:caption>Interior do ônibus executivo 2030 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2030/2030-interior-03.jpeg</image:loc>
+      <image:title>Interior do carro 2030 da Expresso Freitas — foto 3</image:title>
+      <image:caption>Interior do ônibus executivo 2030 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2030/2030-interior-04.jpeg</image:loc>
+      <image:title>Interior do carro 2030 da Expresso Freitas — foto 4</image:title>
+      <image:caption>Interior do ônibus executivo 2030 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2030/2030-interior-05.jpeg</image:loc>
+      <image:title>Interior do carro 2030 da Expresso Freitas — foto 5</image:title>
+      <image:caption>Interior do ônibus executivo 2030 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2030/2030-interior-06.jpeg</image:loc>
+      <image:title>Interior do carro 2030 da Expresso Freitas — foto 6</image:title>
+      <image:caption>Interior do ônibus executivo 2030 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-01.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 1</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-02.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 2</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-03.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 3</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-04.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 4</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-05.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 5</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-06.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 6</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://expressofreitas.com.br/img/interiores/2050/2050-interior-07.jpeg</image:loc>
+      <image:title>Interior do carro 2050 da Expresso Freitas — foto 7</image:title>
+      <image:caption>Interior do ônibus executivo 2050 para aluguel e fretamento</image:caption>
     </image:image>
   </url>
 </urlset>

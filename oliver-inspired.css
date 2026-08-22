@@ -359,6 +359,17 @@ section:not(.hero) { padding-top: clamp(92px, 10vw, 132px); padding-bottom: clam
 .fleet-features { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 16px; }
 .fleet-features li { color: var(--ef-text); font-size: 11px; }
 .fleet-features li svg { stroke: var(--ef-red); }
+.fleet-interior-btn {
+  width: 100%; min-height: 46px; margin-top: 20px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border: 1px solid rgba(228, 18, 42, .28); border-radius: 999px; color: var(--ef-red); background: rgba(228, 18, 42, .055);
+  font: 700 12px/1 'Sora', sans-serif; cursor: pointer; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.fleet-interior-btn::before { content: '▣'; font-size: 15px; line-height: 1; }
+.fleet-interior-btn span { margin-right: auto; }
+.fleet-interior-btn small { color: var(--ef-text); font: 600 10px/1 'Sora', sans-serif; }
+.fleet-interior-btn:hover { color: #fff; background: var(--ef-red); border-color: var(--ef-red); transform: translateY(-1px); }
+.fleet-interior-btn:hover small { color: rgba(255,255,255,.8); }
+.fleet-interior-btn:focus-visible { outline: 3px solid rgba(228,18,42,.25); outline-offset: 3px; }
 
 /* Serviços — cartões lineares como a referência */
 #servicos .container > div:first-child { max-width: 760px; margin: 0 auto 52px !important; text-align: center !important; }
