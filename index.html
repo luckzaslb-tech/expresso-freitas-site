@@ -2987,12 +2987,13 @@
 
     // GALLERY
     const galleryImages = Array.from(document.querySelectorAll('#galleryGrid .gallery-item img'));
+    const fleetInteriorVersion = '20260928';
     const fleetInteriorImages = {
-      '2000': Array.from({ length: 8 }, (_, index) => ({ src: `img/interiores/2000/2000-interior-${String(index + 1).padStart(2, '0')}.jpeg`, alt: `Interior do carro 2000 — foto ${index + 1}` })),
-      '2010': Array.from({ length: 3 }, (_, index) => ({ src: `img/interiores/2010/2010-interior-${String(index + 1).padStart(2, '0')}.jpeg`, alt: `Interior do carro 2010 — foto ${index + 1}` })),
-      '2020': Array.from({ length: 7 }, (_, index) => ({ src: `img/interiores/2020/2020-interior-${String(index + 1).padStart(2, '0')}.jpeg`, alt: `Interior do carro 2020 — foto ${index + 1}` })),
-      '2030': Array.from({ length: 6 }, (_, index) => ({ src: `img/interiores/2030/2030-interior-${String(index + 1).padStart(2, '0')}.jpeg`, alt: `Interior do carro 2030 — foto ${index + 1}` })),
-      '2050': Array.from({ length: 7 }, (_, index) => ({ src: `img/interiores/2050/2050-interior-${String(index + 1).padStart(2, '0')}.jpeg`, alt: `Interior do carro 2050 — foto ${index + 1}` }))
+      '2000': Array.from({ length: 8 }, (_, index) => ({ src: `img/interiores/2000/2000-interior-${String(index + 1).padStart(2, '0')}.jpeg?v=${fleetInteriorVersion}`, alt: `Interior do carro 2000 — foto ${index + 1}` })),
+      '2010': Array.from({ length: 3 }, (_, index) => ({ src: `img/interiores/2010/2010-interior-${String(index + 1).padStart(2, '0')}.jpeg?v=${fleetInteriorVersion}`, alt: `Interior do carro 2010 — foto ${index + 1}` })),
+      '2020': Array.from({ length: 7 }, (_, index) => ({ src: `img/interiores/2020/2020-interior-${String(index + 1).padStart(2, '0')}.jpeg?v=${fleetInteriorVersion}`, alt: `Interior do carro 2020 — foto ${index + 1}` })),
+      '2030': Array.from({ length: 6 }, (_, index) => ({ src: `img/interiores/2030/2030-interior-${String(index + 1).padStart(2, '0')}.jpeg?v=${fleetInteriorVersion}`, alt: `Interior do carro 2030 — foto ${index + 1}` })),
+      '2050': Array.from({ length: 7 }, (_, index) => ({ src: `img/interiores/2050/2050-interior-${String(index + 1).padStart(2, '0')}.jpeg?v=${fleetInteriorVersion}`, alt: `Interior do carro 2050 — foto ${index + 1}` }))
     };
     let activeLightboxImages = galleryImages;
     let currentLightboxIndex = 0;
